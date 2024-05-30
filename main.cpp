@@ -1,48 +1,53 @@
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 
 /**
- * @brief считывает значение из потокового ввода
- * @return вывод являтся треугольник прямоугольным и гипотенузу 
- */
- 
-int main ()
+ * @brief считывает  введёные значение
+ * @return поверка на существование треугольника
+*/
+bool isRightTriangle(double a, double b, double c);
+
+
+int main()
 {
 double a, b, c;
-cout<<"введите три стороны треугольника:";
-cin>>a>>b>>c;
+cout <<"Введите длины сторон треугольника: ";
+cin >> a >> b >> c;
 
-if (a > b && a > c)
+if (isRightTriangle(a, b, c))
 {
-    if(a*a== b*b + c*c)
-    {
-        cout<<"этот треугольник являтеся прямоугольным, а сторона а-гипотенуза"<<endl;
-    }
-    else
-    {
-        cout<<"этот треугольник не является прямоугольным"<<endl;
-    }
+double maxSide = max(max(a, b), c);
+cout << "Треугольник является прямоугольным, гипотенуза - " << maxSide << endl;
 }
-else if (b > a && b > c)
+else
 {
-    if(b*b== a*a + c*c)
-    {
-        cout<<"этот треугольник являтеся прямоугольным, а сторона б-гипотенуза"<<endl;
-    }
-    else
-    {
-        cout<<"этот треугольник не является прямоугольным"<<endl;
-    }
+cout << "Треугольник не является прямоугольным или введены некорректные данные" << endl;
 }
-else if (c > b && c> a)
+
+return 0;
+}
+
+bool isRightTriangle(double a, double b, double c)
 {
-    if(c*c== b*b + a*a)
-    {
-        cout<<"этот треугольник являтеся прямоугольным, а сторона c-гипотенуза"<<endl;
-    }
-    else
-    {
-        cout<<"этот треугольник не является прямоугольным"<<endl;
-    }
+if (a <= 0 || b <= 0 || c <= 0) 
+{
+return false;
+}
+
+double maxSide = max(max(a, b), c); 
+if (maxSide == a)
+{
+return (pow(a, 2) == pow(b, 2) + pow(c, 2));
+} 
+else if (maxSide == b)
+{
+return (pow(b, 2) == pow(a, 2) + pow(c, 2));
+} 
+else
+{
+return (pow(c, 2) == pow(a, 2) + pow(b, 2));
 }
 }
+
