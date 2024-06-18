@@ -22,11 +22,15 @@ double triangleSqare(const double a, const double b, const double c);
   * return возвращает true, если треугольник с такими сторонами существует, иначе возвращает false 
   */
 bool checkTriangleExistence(const double a, const double b, const double c);
+/**
+  * @brief точка входа в программу 
+  * return возвращает 0 в случае успешного завершения программы
+  */
+  int main();
 
-double getValue();
-double rectagleSqare(const double a, const double b);
-double triangleSqare(const double a, const double b, const double c);
-bool checkTriangleExistence(const double a, const double b, const double c);
+
+
+
 
 int main()
 {
@@ -76,9 +80,7 @@ return (sqrt(p * (p - a) * (p - b) * (p - c)));
 
 bool checkTriangleExistence(const double a, const double b, const double c)
 {
-if (a + b > c && a + c > b && b + c > a)
-{
-return true;
+return a + b > c && a + c > b && b + c > a;
 }
 return false;
 }
