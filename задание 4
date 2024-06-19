@@ -7,16 +7,17 @@ using namespace std;
   * @brief Функция вычисляет значение функции в точке x
   * return  возвращает значение функции
   */
-double function(double x);
+double function( const double x);
 /**
   * @brief считывает значение из потокового ввода
  * @return возвращает введенное значение
  */
 double getValue();
 /**
-  * @brief Точка входа в программу. Запрашивает начальное и конечное значение x, а также значение шага
-  * return возвращает 0 в случае успешного завершения программы
-  */
+  * @brief считывает значение из потокового ввода
+ * @return возвращает введенное значение
+ */
+double getStep();
 int main();
 
 
@@ -27,10 +28,10 @@ double x_start = getValue();
 cout << "Начальное значение x = " << x_start << endl;
 double x_end = getValue();
 cout << "Конечное значение x = " << x_end << endl;
-double step = getValue();
+double step = getStep();
 cout << "Значение шага = " << step << endl;
 
-if (x_end <= x_start)
+if (x_end < x_start)
 {
     cout << "Конечное значение x должно быть больше начального. Пожалуйста, введите корректные значения." << endl;
     return 1;
@@ -45,6 +46,20 @@ for (double x = x_start; x < x_end + step; x += step)
 
 return 0;
 }
+
+double getStep()
+{
+    cout << "Введите значение шага: ";
+    double step;
+    cin >> step;
+    if (cin.fail() || step <= 0)
+    {
+        cout << "Ошибка ввода шага. Шаг должен быть положительным числом." << endl;
+        abort();
+    }
+    return step;
+}
+
 double getValue()
 {
 cout << "Введите значение: ";
@@ -58,7 +73,11 @@ abort();
 return value;
 }
 
+
+
 double function(double x)
 {
 return x - (1 / (3 + sin(3.6 * x)));
 }
+
+
