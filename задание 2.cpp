@@ -22,11 +22,7 @@ double triangleSqare(const double a, const double b, const double c);
   * return возвращает true, если треугольник с такими сторонами существует, иначе возвращает false 
   */
 bool checkTriangleExistence(const double a, const double b, const double c);
-/**
-  * @brief точка входа в программу 
-  * return возвращает 0 в случае успешного завершения программы
-  */
-  int main();
+int main();
 
 
 
