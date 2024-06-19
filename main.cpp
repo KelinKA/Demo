@@ -7,12 +7,12 @@ using namespace std;
  * @brief Проверяет существование треугольника
  * @return true, если треугольник существует, иначе false
 */
-bool isValidTriangle(double a, double b, double c);
+bool isValidTriangle( const double a, const double b, const double c);
 /**
  * @brief Проверяет, является ли треугольник прямоугольным
  * @return true, если треугольник прямоугольный, иначе false
 */
-bool isRightTriangle(double a, double b, double c);
+bool isRightTriangle(const double a, const double b, const double c);
 /**
  * @brief считывает значение из потокового ввода
  * @return возвращает введенное значение
