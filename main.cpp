@@ -7,12 +7,12 @@ using namespace std;
  * @brief Проверяет существование треугольника
  * @return true, если треугольник существует, иначе false
 */
-bool isValidTriangle( const double a, const double b, const double c);
+bool isValidTriangle(double a, double b, double c);
 /**
  * @brief Проверяет, является ли треугольник прямоугольным
  * @return true, если треугольник прямоугольный, иначе false
 */
-bool isRightTriangle(const double a, const double b, const double c);
+double findHypotenuse(double a, double b, double c);
 /**
  * @brief считывает значение из потокового ввода
  * @return возвращает введенное значение
@@ -32,24 +32,26 @@ double b = getValue();
 cout << "значение b=" << b << endl;
 double c = getValue();
 cout << "значение c=" << c << endl;
-    
+
     if (!isValidTriangle(a, b, c))
     {
         cout << "Треугольник не существует или введены некорректные данные" << endl;
     }
-    else if (isRightTriangle(a, b, c))
-    {
-        int maxSide = max(max(a, b), c);
-        cout << "Треугольник является прямоугольным, гипотенуза - " << maxSide << endl;
-    }
     else
     {
-        cout << "Треугольник не является прямоугольным" << endl;
+        double hypotenuse = findHypotenuse(a, b, c);
+        if (hypotenuse != 0)
+        {
+            cout << "Треугольник является прямоугольным, гипотенуза - " << hypotenuse << endl;
+        }
+        else
+        {
+            cout << "Треугольник не является прямоугольным" << endl;
+        }
     }
 
     return 0;
 }
-
 bool isValidTriangle(double a, double b, double c)
 {
     return (a + b > c) && (a + c > b) && (b + c > a);
@@ -68,24 +70,24 @@ abort();
 return value;
 }
 
-bool isRightTriangle(double a, double b, double c)
+double findHypotenuse(double a, double b, double c)
 {
     if (a <= 0 || b <= 0 || c <= 0)
     {
-        return false;
+        return 0.0;
     }
-    
-    int maxSide = max(max(a, b), c);
+
+    double maxSide = max(max(a, b), c);
     if (maxSide == a)
     {
-        return (pow(a, 2) == pow(b, 2) + pow(c, 2));
+        return sqrt(pow(b, 2) + pow(c, 2));
     }
     else if (maxSide == b)
-        {
-        return (pow(b, 2) == pow(a, 2) + pow(c, 2));
+    {
+        return sqrt(pow(a, 2) + pow(c, 2));
     }
     else
     {
-        return (pow(c, 2) == pow(a, 2) + pow(b, 2));
+        return sqrt(pow(a, 2) + pow(b, 2));
     }
 }
