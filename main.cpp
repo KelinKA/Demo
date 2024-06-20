@@ -22,7 +22,6 @@ double getValue();
   * @brief точка входа в программу 
   * return возвращает 0 в случае успешного завершения программы
   */
-  int main();
 
 int main()
 {
@@ -36,6 +35,10 @@ cout << "значение c=" << c << endl;
     if (!isValidTriangle(a, b, c))
     {
         cout << "Треугольник не существует или введены некорректные данные" << endl;
+    
+    if (a <= 0 || b <= 0 || c <= 0)
+    {
+        return 1;
     }
     else
     {
@@ -51,6 +54,7 @@ cout << "значение c=" << c << endl;
     }
 
     return 0;
+}
 }
 bool isValidTriangle(double a, double b, double c)
 {
@@ -74,9 +78,9 @@ double findHypotenuse(double a, double b, double c)
 {
     if (a <= 0 || b <= 0 || c <= 0)
     {
-        return 0.0;
+        return 1;
     }
-
+    
     double maxSide = max(max(a, b), c);
     if (maxSide == a)
     {
@@ -89,5 +93,7 @@ double findHypotenuse(double a, double b, double c)
     else
     {
         return sqrt(pow(a, 2) + pow(b, 2));
+    }
+}
     }
 }
