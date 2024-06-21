@@ -1,0 +1,88 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+/**
+  * @brief Функция вычисляет значение функции в точке x
+  * return  возвращает значение функции
+  */
+double function( const double x);
+/**
+  * @brief считывает значение из потокового ввода
+ * @return возвращает введенное значение
+ */
+double getValue();
+/**
+  * @brief считывает значение из потокового ввода
+ * @return возвращает введенное значение
+ */
+double getStep();
+/**
+  * @brief точка входа в программу 
+  * return возвращает 0 в случае успешного завершения программы
+  */
+
+
+
+int main()
+{
+double x_start = getValue();
+cout << "Начальное значение x = " << x_start << endl;
+double x_end = getValue();
+cout << "Конечное значение x = " << x_end << endl;
+double step = getStep();
+cout << "Значение шага = " << step << endl;
+
+if (x_end < x_start)
+{
+    cout << "Конечное значение x должно быть больше начального. Пожалуйста, введите корректные значения." << endl;
+    return 1;
+}
+
+cout << "x\ty" << endl;
+for (double x = x_start; x < x_end + step; x += step)
+{
+    if (3.6 * x == 3)
+     {
+        cout << "Функция не определена в точке x = " << x << ". Пожалуйста, введите другое значение." << endl;
+     }
+    double y = function(x);
+
+     cout << x << "\t" << y << endl;
+}
+
+return 0;
+}
+
+double getStep()
+{
+    cout << "Введите значение шага: ";
+    double step;
+    cin >> step;
+    if (cin.fail() || step <= 0)
+    {
+        cout << "Ошибка ввода шага. Шаг должен быть положительным числом." << endl;
+        abort();
+    }
+    return step;
+}
+
+double getValue()
+{
+cout << "Введите значение: ";
+double value;
+cin >> value;
+if (cin.fail() || value <= 0)
+{
+cout << "Ошибка ввода значения." << endl;
+abort();
+}
+return value;
+}
+
+
+
+double function(double x)
+{
+    return x - (1 / (3 + sin(3.6 * x)));
+}
