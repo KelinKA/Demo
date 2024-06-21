@@ -2,7 +2,6 @@
 #include <cmath>
 
 using namespace std;
-
 /**
   * @brief Функция вычисляет значение функции в точке x
   * return  возвращает значение функции
@@ -43,12 +42,12 @@ if (x_end < x_start)
 cout << "x\ty" << endl;
 for (double x = x_start; x < x_end + step; x += step)
 {
-    double y = function(x);
-     if (3.6 * x == 3)
-    {
+    if (3.6 * x == 3)
+     {
         cout << "Функция не определена в точке x = " << x << ". Пожалуйста, введите другое значение." << endl;
-        abort();
-    }
+     }
+    double y = function(x);
+
      cout << x << "\t" << y << endl;
 }
 
