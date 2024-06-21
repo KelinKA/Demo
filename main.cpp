@@ -31,13 +31,14 @@ double b = getValue();
 cout << "значение b=" << b << endl;
 double c = getValue();
 cout << "значение c=" << c << endl;
-
+    
+     if (a <= 0 || b <= 0 || c <= 0)
+    {
+        return 1;
+    }
     if (!isValidTriangle(a, b, c))
     {
         cout << "Треугольник не существует или введены некорректные данные" << endl;
-    
-    if (a <= 0 || b <= 0 || c <= 0)
-    {
         return 1;
     }
     else
@@ -54,7 +55,6 @@ cout << "значение c=" << c << endl;
     }
 
     return 0;
-}
 }
 bool isValidTriangle(double a, double b, double c)
 {
@@ -76,11 +76,6 @@ return value;
 
 double findHypotenuse(double a, double b, double c)
 {
-    if (a <= 0 || b <= 0 || c <= 0)
-    {
-        return 1;
-    }
-    
     double maxSide = max(max(a, b), c);
     if (maxSide == a)
     {
@@ -93,7 +88,5 @@ double findHypotenuse(double a, double b, double c)
     else
     {
         return sqrt(pow(a, 2) + pow(b, 2));
-    }
-}
     }
 }
