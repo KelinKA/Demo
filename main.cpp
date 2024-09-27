@@ -35,7 +35,7 @@ double getValue()
 cout << "Введите значение: ";
 double value;
 cin >> value;
-if (cin.fail() || value <= 0)
+if (cin.fail())
 {
 cout << "Ошибка ввода значения." << endl;
 abort();
