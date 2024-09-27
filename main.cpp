@@ -46,7 +46,7 @@ int main()
     } 
     cout << "Сумма первых " << n << " членов последовательности: " << sumFirstN(n) << endl; 
     double e = getValidE(); 
-    if (e == -1) 
+    if (e <0) 
     { 
         return 1;
     } 
