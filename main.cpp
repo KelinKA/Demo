@@ -40,7 +40,7 @@ int main()
 
     setlocale(LC_ALL, "Russian"); 
     int n = getValidN(); 
-    if (n == -1) 
+    if (n <0) 
     { 
         return 1;
     } 
